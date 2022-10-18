@@ -10,7 +10,7 @@ def index(request):
 def list(request):
     context = {}
     context["dataset"] = Case.objects.all()
-    return render(request, "list.html", context)
+    return render(request, "cases/list.html", context=locals())
 
 def create(request):
     # dictionary for initial data with

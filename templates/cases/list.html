@@ -1,0 +1,27 @@
+{% extends '../default.html' %}
+
+{% block content %}
+
+    <div class="main">
+    
+        <div class="alert alert-success" role="alert">
+            <h2>X-Files Cases List</h2>
+        </div>
+        
+        {% for data in dataset %}
+
+        {{ data.id }} -
+        {{ data.title }}
+        ({{ data.theme }})<br/>
+        <hr/>
+
+        {% empty %}
+        <div class="alert alert-warning" role="alert">
+            No Cases investigated and registered at moment
+        </div>
+
+        {% endfor %}
+    
+    </div>
+
+{% endblock %}
