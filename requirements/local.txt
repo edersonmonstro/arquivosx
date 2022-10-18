@@ -1,0 +1,20 @@
+#instalacao de dependencias
+# pip install -r requirements/local.txt
+
+#para puxar dependencias de outro documento
+#-r common.txt
+
+#django-debug-toolbar==3.2.1
+#jupyter==1.0.0
+#notebook==6.2.0
+#ptvsd==4.3.2
+#tox==3.13.2
+
+asgiref==3.5.2
+distlib==0.3.6
+Django==4.1.1
+filelock==3.8.0
+platformdirs==2.5.2
+psycopg2-binary==2.9.4
+sqlparse==0.4.3
+virtualenv==20.16.5

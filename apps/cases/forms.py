@@ -1,17 +1,17 @@
 from django import forms
-from .models import CasosModel
+from apps.cases.models import Case
  
  
 # creating a form
-class CasosForm(forms.ModelForm):
+class CasesForm(forms.ModelForm):
  
     # create meta class
     class Meta:
         # specify model to be used
-        model = CasosModel
+        model = Case
  
         # specify fields to be used
         fields = [
-            "titulo",
-            "tema",
+            "title",
+            "theme",
         ]
