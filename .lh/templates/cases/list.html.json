@@ -1,0 +1,18 @@
+{
+    "sourceFile": "templates/cases/list.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1666134672151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1666134672151,
+            "name": "Commit-0",
+            "content": "{% extends '../base.html' %}\n\n{% block content %}\n\n<div class=\"main\">\n    \n        <div class=\"alert alert-success\" role=\"alert\">\n            <h2>X-Files Cases List <a href=\"/cases/create/\" class=\"btn btn-success\">New X-File Case</a></h2>\n        </div>\n         \n        <table class=\"table table-success\">\n            <thead>\n              <tr>\n                <th scope=\"col\">ID</th>\n                <th scope=\"col\">Title</th>\n                <th scope=\"col\">Theme</th>\n                <th scope=\"col\">Options</th>\n              </tr>\n            </thead>\n            <tbody>\n                {% for data in dataset %}\n                    <tr>\n                        <th scope=\"row\">{{ data.id }}</th>\n                        <td>{{ data.title }}</td>\n                        <td>({{ data.theme }})</td>\n                        <td>?</td>\n                    </tr>\n                {% empty %}\n                    <tr>\n                        <td colspan=\"4\">No Cases investigated and registered at moment</td>\n                    </div>\n                {% endfor %}    \n            </tbody>\n          </table>\n    \n    </div>\n\n{% endblock %}"
+        }
+    ]
+}

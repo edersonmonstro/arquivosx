@@ -1,10 +1,30 @@
-<form method="POST" enctype="multipart/form-data">
+{% extends '../base.html' %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data" action=".">
  
-    <!-- Security token -->
-    {% csrf_token %}
- 
-    <!-- Using the formset -->
-    {{ form.as_p }}
+    <form>
+
+        <!-- Security token -->
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title">
+        </div>
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Theme</label>
+            <input type="text" class="form-control" name="theme">
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    <!-- Using the formset 
+    {{ form.as_p }}-->
      
-    <input type="submit" value="Submit">
 </form>
+
+{% endblock %}

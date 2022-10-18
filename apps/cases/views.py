@@ -10,7 +10,7 @@ def index(request):
 def list(request):
     context = {}
     context["dataset"] = Case.objects.all()
-    return render(request, "cases/list.html", context=locals())
+    return render(request, "cases/list.html", context)
 
 def create(request):
     # dictionary for initial data with
@@ -21,9 +21,10 @@ def create(request):
     form = CasesForm(request.POST or None)
     if form.is_valid():
         form.save()
+        return HttpResponseRedirect("/cases/list/")
          
     context['form']= form
-    return render(request, "create.html", context)
+    return render(request, "cases/create.html", context)
 
 def detail(request,id):
     context = {}
