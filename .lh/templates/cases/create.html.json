@@ -1,0 +1,34 @@
+{
+    "sourceFile": "templates/cases/create.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1666136478895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1666136527414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" name=\"title\" value=\"title\">\n+            <input type=\"text\" class=\"form-control\" name=\"title\" value=\"{{title}}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" name=\"theme\" value=\"title\">\n+            <input type=\"text\" class=\"form-control\" name=\"theme\" value=\"{{title}}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666136630643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" name=\"title\" value=\"{{title}}\">\n+            <input type=\"text\" class=\"form-control\" name=\"title\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" name=\"theme\" value=\"{{title}}\">\n+            <input type=\"text\" class=\"form-control\" name=\"theme\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666149710284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,12 @@\n \n         <!-- Security token -->\n         {% csrf_token %}\n \n+        <div class=\"alert alert-success\" role=\"alert\">\n+            <h2>X-Files New Case</h2>\n+        </div>\n+\n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n             <input type=\"text\" class=\"form-control\" name=\"title\">\n         </div>\n"
+                },
+                {
+                    "date": 1666149725172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n             <label for=\"title\" class=\"form-label\">Theme</label>\n             <input type=\"text\" class=\"form-control\" name=\"theme\">\n         </div>\n        \n-        <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n+        <button type=\"submit\" class=\"btn btn-success\">Submit</button>\n       </form>\n \n     <!-- Using the formset \n     {{ form.as_p }}-->\n"
+                }
+            ],
+            "date": 1666136478895,
+            "name": "Commit-0",
+            "content": "{% extends '../base.html' %}\n\n{% block content %}\n\n<form method=\"POST\" enctype=\"multipart/form-data\" action=\".\">\n \n    <form>\n\n        <!-- Security token -->\n        {% csrf_token %}\n\n        <div class=\"mb-3\">\n            <label for=\"title\" class=\"form-label\">Title</label>\n            <input type=\"text\" class=\"form-control\" name=\"title\" value=\"title\">\n        </div>\n\n        <div class=\"mb-3\">\n            <label for=\"title\" class=\"form-label\">Theme</label>\n            <input type=\"text\" class=\"form-control\" name=\"theme\" value=\"title\">\n        </div>\n       \n        <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n      </form>\n\n    <!-- Using the formset \n    {{ form.as_p }}-->\n     \n</form>\n\n{% endblock %}"
+        }
+    ]
+}

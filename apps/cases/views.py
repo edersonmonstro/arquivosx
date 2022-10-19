@@ -29,26 +29,24 @@ def create(request):
 def detail(request,id):
     context = {}
     context["data"] = Case.objects.get(id = id)
-    return render(request, "detail.html", context)
+    return render(request, "cases/detail.html", context)
 
-def update(request, id):
+def update(request, id) :
     context = {}
-    #obj = get_object_or_404(CasosModel, id = id)
+
     obj = Case.objects.get(id=id)
-    print(type(obj))
+
     # pass the object as instance in form
     form = CasesForm(request.POST or None, instance=obj)
 
-    # save the data from the form and
-    # redirect to detail_view
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect("/cases/list/")
- 
     # add form dictionary to context
-    context["form"] = form
- 
-    return render(request, "update.html", context)
+    #context["form"] = form
+    context = {
+        'form': form,
+        'obj': obj,
+    }
+
+    return render(request, "cases/update.html", context)
 
 def delete(request, id):
     context = {}
@@ -60,4 +58,17 @@ def delete(request, id):
         # home page
         return HttpResponseRedirect("/cases/list/")
  
-    return render(request, "delete.html", context)
+    context = {
+        'obj': obj,
+    }
+    return render(request, "cases/delete.html", context)
+
+def updaterecord(request):
+    first = request.POST['title']
+    last = request.POST['theme']
+    id = request.POST['id']
+    member = Case.objects.get(id=id)
+    member.title = first
+    member.theme = last
+    member.save()
+    return HttpResponseRedirect("/cases/list/")

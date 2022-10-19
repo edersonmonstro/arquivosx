@@ -1,0 +1,46 @@
+{
+    "sourceFile": "apps/cases/urls.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1666141041878,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1666144585216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,8 @@\n     path('list/',views.list),\n     path('create/',views.create),\n     path('<id>', views.detail),\n     path('<id>/update', views.update, name='case_update'),\n+    #path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),\n     path('<id>/delete', views.delete),\n ]\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666146898394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     path('',views.list),\n     path('list/',views.list),\n     path('create/',views.create),\n     path('<id>', views.detail),\n-    path('<id>/update', views.update, name='case_update'),\n+    path('<id>/update', views.update,\n     #path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),\n     path('<id>/delete', views.delete),\n ]\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666146927813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     path('',views.list),\n     path('list/',views.list),\n     path('create/',views.create),\n     path('<id>', views.detail),\n-    path('<id>/update', views.update,\n+    path('<id>/update', views.update),\n     #path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),\n     path('<id>/delete', views.delete),\n ]\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666147176287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     path('',views.list),\n     path('list/',views.list),\n     path('create/',views.create),\n     path('<id>', views.detail),\n-    path('<id>/update', views.update),\n+    path('<id>/update', views.update, name='case_update'),\n     #path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),\n     path('<id>/delete', views.delete),\n ]\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666148671369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,6 +10,7 @@\n     path('<id>', views.detail),\n     path('<id>/update', views.update, name='case_update'),\n     #path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),\n     path('<id>/delete', views.delete),\n+    path('updaterecord/', views.updaterecord, name='updaterecord'),\n ]\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666149193332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,7 @@\n     path('<id>', views.detail),\n     path('<id>/update', views.update, name='case_update'),\n     #path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),\n     path('<id>/delete', views.delete),\n-    path('updaterecord/', views.updaterecord, name='updaterecord'),\n+    path('updaterecord/', views.updaterecord),\n ]\n  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666149241041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,7 @@\n     path('<id>', views.detail),\n     path('<id>/update', views.update, name='case_update'),\n     #path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),\n     path('<id>/delete', views.delete),\n-    path('updaterecord/', views.updaterecord),\n+    path('update/', views.updaterecord),\n ]\n  \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1666141041878,
+            "name": "Commit-0",
+            "content": "from django.urls import path\n\n#now import the views.py file into this code\nfrom . import views\n\nurlpatterns = [\n    path('',views.list),\n    path('list/',views.list),\n    path('create/',views.create),\n    path('<id>', views.detail),\n    path('<id>/update', views.update, name='case_update'),\n    path('<id>/delete', views.delete),\n]\n "
+        }
+    ]
+}

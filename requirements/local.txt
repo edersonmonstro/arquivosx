@@ -18,3 +18,4 @@ platformdirs==2.5.2
 psycopg2-binary==2.9.4
 sqlparse==0.4.3
 virtualenv==20.16.5
+django-widget-tweaks==1.4.12

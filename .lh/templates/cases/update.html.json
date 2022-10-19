@@ -1,0 +1,290 @@
+{
+    "sourceFile": "templates/cases/update.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 68,
+            "patches": [
+                {
+                    "date": 1666136618331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1666136929287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,46 @@\n+{% extends '../base.html' %}\n+\n+{% block content %}\n+\n+<form method=\"POST\" enctype=\"multipart/form-data\" action=\".\">\n+ \n+    <form>\n+\n+        <!-- Security token -->\n+        {% csrf_token %}\n+\n+        <div class=\"mb-3\">\n+            <label for=\"title\" class=\"form-label\">Title</label>\n\\ No newline at end of file\n+            {{ data.title }}\n+        </div>\n+\n+        <div class=\"mb-3\">\n+            <label for=\"title\" class=\"form-label\">Theme</label>\n+            {{ data.theme }}\n+        </div>\n+       \n+        <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n+      </form>\n+\n+    <!-- Using the formset \n+    {{ form.as_p }}-->\n+     \n+</form>\n+\n+{% endblock %}\n+\n+<!--\n <div class=\"main\">\n-    <!-- Create a Form -->\n+    \n     <form method=\"POST\">\n-        <!-- Security token by Django -->\n+    \n         {% csrf_token %}\n \n-        <!-- form as paragraph -->\n+    \n         {{ form.as_p }}\n \n         <input type=\"submit\" value=\"Update\">\n     </form>\n \n-</div>\n+</div>\n+-->\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666137045071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            {{ data.title }}\n+            {{ form.title }}\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            {{ data.theme }}\n+            {{ form.theme }}\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666137114399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,13 +10,15 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n+            <input type=\"text\" class=\"form-control\" name=\"title\">\n             {{ form.title }}\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n+            <input type=\"text\" class=\"form-control\" name=\"theme\">\n             {{ form.theme }}\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n"
+                },
+                {
+                    "date": 1666137122917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,15 +11,13 @@\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n             <input type=\"text\" class=\"form-control\" name=\"title\">\n-            {{ form.title }}\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n             <input type=\"text\" class=\"form-control\" name=\"theme\">\n-            {{ form.theme }}\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666137137204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" name=\"title\">\n+            <input type=\"text\" class=\"form-control\" name=\"form.title\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666137272074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,13 +11,15 @@\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n             <input type=\"text\" class=\"form-control\" name=\"form.title\">\n+            {{ form.title }}\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n             <input type=\"text\" class=\"form-control\" name=\"theme\">\n+            {{ form.theme }}\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666137357279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,16 +10,14 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" name=\"form.title\">\n-            {{ form.title }}\n+            <input type=\"text\" class=\"form-control\" id=\"form.title\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" name=\"theme\">\n-            {{ form.theme }}\n+            <input type=\"text\" class=\"form-control\" id=\"form.theme\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666137890940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" id=\"form.title\">\n+            <input type=\"text\" class=\"form-control\" name=\"form.title\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" id=\"form.theme\">\n+            <input type=\"text\" class=\"form-control\" name=\"form.theme\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666137932393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" name=\"form.theme\">\n+            <input type=\"text\" class=\"form-control\" id=\"form.theme\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666137943188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" id=\"form.theme\">\n+            <input type=\"text\" class=\"form-control\" value=\"form.theme\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666137961133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" value=\"form.theme\">\n+            <input type=\"text\" class=\"form-control\" value=\"{{form.theme}}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666137976533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{{form.theme}}\">\n+            <input type=\"text\" class=\"form-control\" value=\"{{ form.theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666137995332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{{ form.theme }}\">\n+            <input type=\"text\" class=\"form-control\" value=\"{{ theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666138081222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{{ theme }}\">\n+            <input type=\"text\" class=\"form-control\" name=\"{{ theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666138090093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" name=\"{{ theme }}\">\n+            <input type=\"text\" class=\"form-control\" id=\"{{ theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666138102126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" id=\"{{ theme }}\">\n+            <input type=\"text\" class=\"form-control\" id=\"{{ form.theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666138128574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" name=\"form.title\">\n+            <input type=\"text\" class=\"form-control\" id=\"{{ form.title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666138222023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" id=\"{{ form.title }}\">\n+            <input type=\"text\" class=\"form-control\" id=\"{{ form.title }}\" >\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" id=\"{{ form.theme }}\">\n+            <input type=\"text\" class=\"form-control\" id=\"{{ form.theme }}\" >\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666138251899,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" id=\"{{ form.title }}\" >\n+            <input type=\"text\" class=\"form-control\" id='{{ form.title }}' >\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666138817221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" id='{{ form.title }}' >\n+            <input type=\"text\" class=\"form-control\" name='title' >\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" id=\"{{ form.theme }}\" >\n+            <input type=\"text\" class=\"form-control\" name=\"theme\" >\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666139281057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,10 @@\n             <input type=\"text\" class=\"form-control\" name=\"theme\" >\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n+\n+        {{ form }}\n       </form>\n \n     <!-- Using the formset \n     {{ form.as_p }}-->\n"
+                },
+                {
+                    "date": 1666139613088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,18 +8,15 @@\n \n         <!-- Security token -->\n         {% csrf_token %}\n \n+        {% for field in form.visible_fields %}\n         <div class=\"mb-3\">\n-            <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" name='title' >\n+            <label for=\"title\" class=\"form-label\">{{ field.label }}</label>\n+            {{ field }}\n+            <!--<input type=\"text\" class=\"form-control\" name='title' >-->\n         </div>\n-\n-        <div class=\"mb-3\">\n-            <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" name=\"theme\" >\n-        </div>\n-       \n+       {% endfor %}\n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n \n         {{ form }}\n       </form>\n"
+                },
+                {
+                    "date": 1666139737655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,8 @@\n \n {% block content %}\n \n <form method=\"POST\" enctype=\"multipart/form-data\" action=\".\">\n- \n-    <form>\n \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666139953479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,43 +1,44 @@\n-{% extends '../base.html' %}\n+{% load widget_tweaks %}\n \n-{% block content %}\n+<form method=\"post\" novalidate>\n+  {% csrf_token %}\n \n-<form method=\"POST\" enctype=\"multipart/form-data\" action=\".\">\n+  {% for hidden_field in form.hidden_fields %}\n+    {{ hidden_field }}\n+  {% endfor %}\n \n-        <!-- Security token -->\n-        {% csrf_token %}\n+  {% if form.non_field_errors %}\n+    <div class=\"alert alert-danger\" role=\"alert\">\n+      {% for error in form.non_field_errors %}\n+        {{ error }}\n+      {% endfor %}\n+    </div>\n+  {% endif %}\n \n-        {% for field in form.visible_fields %}\n-        <div class=\"mb-3\">\n-            <label for=\"title\" class=\"form-label\">{{ field.label }}</label>\n-            {{ field }}\n-            <!--<input type=\"text\" class=\"form-control\" name='title' >-->\n-        </div>\n-       {% endfor %}\n-        <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n+  {% for field in form.visible_fields %}\n+    <div class=\"form-group\">\n+      {{ field.label_tag }}\n \n-        {{ form }}\n-      </form>\n+      {% if form.is_bound %}\n+        {% if field.errors %}\n+          {% render_field field class=\"form-control is-invalid\" %}\n+          {% for error in field.errors %}\n+            <div class=\"invalid-feedback\">\n+              {{ error }}\n+            </div>\n\\ No newline at end of file\n+          {% endfor %}\n+        {% else %}\n+          {% render_field field class=\"form-control is-valid\" %}\n+        {% endif %}\n+      {% else %}\n+        {% render_field field class=\"form-control\" %}\n+      {% endif %}\n \n-    <!-- Using the formset \n-    {{ form.as_p }}-->\n-     \n-</form>\n+      {% if field.help_text %}\n+        <small class=\"form-text text-muted\">{{ field.help_text }}</small>\n+      {% endif %}\n+    </div>\n+  {% endfor %}\n \n-{% endblock %}\n-\n-<!--\n-<div class=\"main\">\n-    \n-    <form method=\"POST\">\n-    \n-        {% csrf_token %}\n-\n-    \n-        {{ form.as_p }}\n-\n-        <input type=\"submit\" value=\"Update\">\n-    </form>\n-\n-</div>\n--->\n+  <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n+</form>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666142024465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,44 +1,30 @@\n-{% load widget_tweaks %}\n+{% extends '../base.html' %}\n \n-<form method=\"post\" novalidate>\n-  {% csrf_token %}\n+{% block content %}\n \n-  {% for hidden_field in form.hidden_fields %}\n-    {{ hidden_field }}\n-  {% endfor %}\n+<form method=\"POST\" enctype=\"multipart/form-data\" action=\".\">\n+ \n+    <form>\n \n-  {% if form.non_field_errors %}\n-    <div class=\"alert alert-danger\" role=\"alert\">\n-      {% for error in form.non_field_errors %}\n-        {{ error }}\n-      {% endfor %}\n-    </div>\n-  {% endif %}\n+        <!-- Security token -->\n+        {% csrf_token %}\n \n-  {% for field in form.visible_fields %}\n-    <div class=\"form-group\">\n-      {{ field.label_tag }}\n+        <div class=\"mb-3\">\n+            <label for=\"title\" class=\"form-label\">Title</label>\n+            <input type=\"text\" class=\"form-control\" name=\"title\">\n+        </div>\n \n-      {% if form.is_bound %}\n-        {% if field.errors %}\n-          {% render_field field class=\"form-control is-invalid\" %}\n-          {% for error in field.errors %}\n-            <div class=\"invalid-feedback\">\n-              {{ error }}\n-            </div>\n-          {% endfor %}\n-        {% else %}\n-          {% render_field field class=\"form-control is-valid\" %}\n-        {% endif %}\n-      {% else %}\n\\ No newline at end of file\n-        {% render_field field class=\"form-control\" %}\n-      {% endif %}\n+        <div class=\"mb-3\">\n+            <label for=\"title\" class=\"form-label\">Theme</label>\n+            <input type=\"text\" class=\"form-control\" name=\"theme\">\n+        </div>\n+       \n+        <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n+      </form>\n \n-      {% if field.help_text %}\n-        <small class=\"form-text text-muted\">{{ field.help_text }}</small>\n-      {% endif %}\n-    </div>\n-  {% endfor %}\n+    <!-- Using the formset \n+    {{ form.as_p }}-->\n+     \n+</form>\n \n-  <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n-</form>\n+{% endblock %}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666142066612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" name=\"title\">\n+            <input type=\"text\" class=\"form-control\" value=\"{{ form.title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666142080737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{{ form.title }}\">\n+            <input type=\"text\" class=\"form-control\" value=\"{{ title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666142128893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{{ title }}\">\n+            <input type=\"text\" class=\"form-control\" value=\"{% field %}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666142161377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{% field %}\">\n+            <input type=\"text\" class=\"form-control\" value=\"{% form.title %}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666142172851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         {% csrf_token %}\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{% form.title %}\">\n+            <input type=\"text\" class=\"form-control\" value=\"{% form.field.title %}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666142244489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n \n         <!-- Security token -->\n         {% csrf_token %}\n \n+        {{ form }}\n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n             <input type=\"text\" class=\"form-control\" value=\"{% form.field.title %}\">\n         </div>\n"
+                },
+                {
+                    "date": 1666142256839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n         {{ form }}\n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{% form.field.title %}\">\n+            <input type=\"text\" class=\"form-control\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666142390361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n         {{ form }}\n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\">\n+            <input type=\"text\" class=\"form-control\" value=\"{{ obj.title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666142417711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,12 @@\n \n         <!-- Security token -->\n         {% csrf_token %}\n \n-        {{ form }}\n+       \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{{ obj.title }}\">\n+            <input name=\"first\" value=\"{{ mymember.firstname }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666142428016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n        \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input name=\"first\" value=\"{{ mymember.firstname }}\">\n+            <input name=\"first\" value=\"{{ obj.title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666142522573,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" name=\"theme\">\n+            <input type=\"text\" class=\"form-control\" value=\"{{ obj.theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n       </form>\n"
+                },
+                {
+                    "date": 1666142534277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n        \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input name=\"first\" value=\"{{ obj.title }}\">\n+            <input type=\"text\" class=\"form-control\" value=\"{{ obj.title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n"
+                },
+                {
+                    "date": 1666142571433,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,8 @@\n {% block content %}\n \n <form method=\"POST\" enctype=\"multipart/form-data\" action=\".\">\n  \n-    <form>\n-\n         <!-- Security token -->\n         {% csrf_token %}\n \n        \n"
+                },
+                {
+                    "date": 1666142657219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" enctype=\"multipart/form-data\" action=\".\">\n+<form method=\"POST\" enctype=\"multipart/form-data\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666142663425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" enctype=\"multipart/form-data\">\n+<form method=\"POST\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666142858708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,8 @@\n             <input type=\"text\" class=\"form-control\" value=\"{{ obj.theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n-      </form>\n-\n     <!-- Using the formset \n     {{ form.as_p }}-->\n      \n </form>\n"
+                },
+                {
+                    "date": 1666144594737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\">\n+<form method=\"POST\" action=\"{% url 'case_update' 'data.id' %}\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666144758868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{% url 'case_update' 'data.id' %}\">\n+<form method=\"POST\" action=\"{% url 'case_update' 'obj.id' %}\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666144913784,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{% url 'case_update' 'obj.id' %}\">\n+<form method=\"POST\" action=\"/{{obj.id/update/}}\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666144921933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"/{{obj.id/update/}}\">\n+<form method=\"POST\" action=\"/{{ obj.id/update }}\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666144963661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"/{{ obj.id/update }}\">\n+<form method=\"POST\" action=\"{{ obj.id }}/update\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666145127647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{{ obj.id }}/update\">\n+<form method=\"POST\" action=\"/update\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666145160876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"/update\">\n+<form method=\"POST\" action=\"{% url 'case_update' 'data.id' %}\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666145167397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{% url 'case_update' 'data.id' %}\">\n+<form method=\"POST\" action=\"{% url 'case_update' 'obj.id' %}\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666145198532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{% url 'case_update' 'obj.id' %}\">\n+<form method=\"POST\" action=\"{% url 'case_update' 'id' %}\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666145221928,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{% url 'case_update' 'id' %}\">\n+<form method=\"POST\" action=\"{% url 'case_update' {{'id'}} %}\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666145231910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{% url 'case_update' {{'id'}} %}\">\n+<form method=\"POST\" action=\"{% url 'case_update' {{id}} %}\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666145314658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{% url 'case_update' {{id}} %}\">\n+<form method=\"POST\" action=\"{% url 'case_update' id %}\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666146526835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{% url 'case_update' id %}\">\n+<form method=\"POST\" action=\"{{ obj.id }}/update\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666147442396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{{ obj.id }}/update\">\n+<form action=\"updaterecord/{{ obj.id }}\" method=\"post\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666147485580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,22 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form action=\"updaterecord/{{ obj.id }}\" method=\"post\">\n+<form method=\"POST\" action=\"{{ obj.id }}/update\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n        \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{{ obj.title }}\">\n+            <input type=\"text\" class=\"form-control\" name=\"title\" value=\"{{ obj.title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{{ obj.theme }}\">\n+            <input type=\"text\" class=\"form-control\" name=\"theme\" value=\"{{ obj.theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n     <!-- Using the formset \n"
+                },
+                {
+                    "date": 1666147551653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"POST\" action=\"{{ obj.id }}/update\">\n+<form method=\"post\" action=\"{{ obj.id }}/update\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666147605973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"post\" action=\"{{ obj.id }}/update\">\n+<form method=\"post\" action=\"/{{ obj.id }}/update\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666147803511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"post\" action=\"/{{ obj.id }}/update\">\n+<form method=\"post\" action=\"{{ obj.id }}/update\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666148055209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,14 +9,14 @@\n \n        \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" name=\"title\" value=\"{{ obj.title }}\">\n+            <input type=\"text\" class=\"form-control\" name=\"tit\" value=\"{{ obj.title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" name=\"theme\" value=\"{{ obj.theme }}\">\n+            <input type=\"text\" class=\"form-control\" name=\"them\" value=\"{{ obj.theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n     <!-- Using the formset \n"
+                },
+                {
+                    "date": 1666148105690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,14 +9,14 @@\n \n        \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" name=\"tit\" value=\"{{ obj.title }}\">\n+            <input type=\"text\" class=\"form-control\" value=\"{{ obj.title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" name=\"them\" value=\"{{ obj.theme }}\">\n+            <input type=\"text\" class=\"form-control\" value=\"{{ obj.theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n     <!-- Using the formset \n"
+                },
+                {
+                    "date": 1666148201117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,14 +9,14 @@\n \n        \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{{ obj.title }}\">\n+            <input type=\"text\" class=\"form-control\" name=\"title\" value=\"{{ obj.title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" value=\"{{ obj.theme }}\">\n+            <input type=\"text\" class=\"form-control\" name=\"theme\" value=\"{{ obj.theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n     <!-- Using the formset \n"
+                },
+                {
+                    "date": 1666148228668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,14 +9,14 @@\n \n        \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n-            <input type=\"text\" class=\"form-control\" name=\"title\" value=\"{{ obj.title }}\">\n+            <input type=\"text\" class=\"form-control\" name=\"title\" id=\"title\" value=\"{{ obj.title }}\">\n         </div>\n \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Theme</label>\n-            <input type=\"text\" class=\"form-control\" name=\"theme\" value=\"{{ obj.theme }}\">\n+            <input type=\"text\" class=\"form-control\" name=\"theme\" id=\"theme\" value=\"{{ obj.theme }}\">\n         </div>\n        \n         <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n     <!-- Using the formset \n"
+                },
+                {
+                    "date": 1666148622288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"post\" action=\"{{ obj.id }}/update\">\n+<form method=\"post\" action=\"updaterecord\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666149209495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"post\" action=\"updaterecord\">\n+<form method=\"post\" action=\"/cases/create/\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666149214688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {% extends '../base.html' %}\n \n {% block content %}\n \n-<form method=\"post\" action=\"/cases/create/\">\n+<form method=\"post\" action=\"/cases/update/\">\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n"
+                },
+                {
+                    "date": 1666149306765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n+        <input type=\"hidden\" class=\"form-control\" name=\"id\" id=\"id\" value=\"{{ obj.id }}\">\n        \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n             <input type=\"text\" class=\"form-control\" name=\"title\" id=\"title\" value=\"{{ obj.title }}\">\n"
+                },
+                {
+                    "date": 1666149757606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,12 @@\n  \n         <!-- Security token -->\n         {% csrf_token %}\n \n+        <div class=\"alert alert-success\" role=\"alert\">\n+            <h2>X-Files Case Update</h2>\n+        </div>\n+\n         <input type=\"hidden\" class=\"form-control\" name=\"id\" id=\"id\" value=\"{{ obj.id }}\">\n        \n         <div class=\"mb-3\">\n             <label for=\"title\" class=\"form-label\">Title</label>\n@@ -18,9 +22,9 @@\n             <label for=\"title\" class=\"form-label\">Theme</label>\n             <input type=\"text\" class=\"form-control\" name=\"theme\" id=\"theme\" value=\"{{ obj.theme }}\">\n         </div>\n        \n-        <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n+        <button type=\"submit\" class=\"btn btn-success\">Submit</button>\n     <!-- Using the formset \n     {{ form.as_p }}-->\n      \n </form>\n"
+                }
+            ],
+            "date": 1666136618331,
+            "name": "Commit-0",
+            "content": "<div class=\"main\">\n    <!-- Create a Form -->\n    <form method=\"POST\">\n        <!-- Security token by Django -->\n        {% csrf_token %}\n\n        <!-- form as paragraph -->\n        {{ form.as_p }}\n\n        <input type=\"submit\" value=\"Update\">\n    </form>\n\n</div>"
+        }
+    ]
+}

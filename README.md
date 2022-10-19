@@ -21,3 +21,7 @@ forms
 urls
 templates in templates folder
 migrations to create/populate db
+
+## links uteis
+### na hora de montar o update view
+https://www.w3schools.com/django/django_update_record.php

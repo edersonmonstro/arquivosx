@@ -1,0 +1,34 @@
+{
+    "sourceFile": "apps/cases/forms.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1666140200135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1666141507901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n #             \"title\",\n #             \"theme\",\n #         ]\n \n-class CasesForm(forms.Form):\n+class CasesForm(forms.ModelForm):\n     title = forms.CharField(\n         max_length=30,\n         widget=forms.TextInput(\n             attrs={\n"
+                },
+                {
+                    "date": 1666141580102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,12 @@\n #             \"theme\",\n #         ]\n \n class CasesForm(forms.ModelForm):\n+    class Meta:\n+         # specify model to be used\n+         model = Case\n+         \n     title = forms.CharField(\n         max_length=30,\n         widget=forms.TextInput(\n             attrs={\n"
+                },
+                {
+                    "date": 1666141587024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,12 +16,12 @@\n #             \"theme\",\n #         ]\n \n class CasesForm(forms.ModelForm):\n-    class Meta:\n+    Meta:\n          # specify model to be used\n          model = Case\n-         \n+\n     title = forms.CharField(\n         max_length=30,\n         widget=forms.TextInput(\n             attrs={\n"
+                },
+                {
+                    "date": 1666141774774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,40 +2,36 @@\n from apps.cases.models import Case\n  \n  \n # creating a form\n-# class CasesForm(forms.ModelForm):\n+class CasesForm(forms.ModelForm):\n  \n-#     # create meta class\n-#     class Meta:\n-#         # specify model to be used\n-#         model = Case\n+    # create meta class\n+    class Meta:\n+        # specify model to be used\n+        model = Case\n  \n-#         # specify fields to be used\n-#         fields = [\n-#             \"title\",\n-#             \"theme\",\n-#         ]\n+        # specify fields to be used\n+        fields = [\n+            \"title\",\n+            \"theme\",\n+        ]\n \n-class CasesForm(forms.ModelForm):\n-    Meta:\n-         # specify model to be used\n-         model = Case\n-\n-    title = forms.CharField(\n-        max_length=30,\n-        widget=forms.TextInput(\n-            attrs={\n-                'style': 'border-color: blue;',\n-                'placeholder': 'Case title here'\n-            }\n-        )\n\\ No newline at end of file\n-    )\n-    theme = forms.CharField(\n-        max_length=30,\n-        widget=forms.TextInput(\n-            attrs={\n-                'style': 'border-color: blue;',\n-                'placeholder': 'Case theme here'\n-            }\n-        )\n-    )\n+# class CasesForm(forms.ModelForm):\n+#     title = forms.CharField(\n+#         max_length=30,\n+#         widget=forms.TextInput(\n+#             attrs={\n+#                 'style': 'border-color: blue;',\n+#                 'placeholder': 'Case title here'\n+#             }\n+#         )\n+#     )\n+#     theme = forms.CharField(\n+#         max_length=30,\n+#         widget=forms.TextInput(\n+#             attrs={\n+#                 'style': 'border-color: blue;',\n+#                 'placeholder': 'Case theme here'\n+#             }\n+#         )\n+#     )\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1666140200135,
+            "name": "Commit-0",
+            "content": "from django import forms\nfrom apps.cases.models import Case\n \n \n# creating a form\n# class CasesForm(forms.ModelForm):\n \n#     # create meta class\n#     class Meta:\n#         # specify model to be used\n#         model = Case\n \n#         # specify fields to be used\n#         fields = [\n#             \"title\",\n#             \"theme\",\n#         ]\n\nclass CasesForm(forms.Form):\n    title = forms.CharField(\n        max_length=30,\n        widget=forms.TextInput(\n            attrs={\n                'style': 'border-color: blue;',\n                'placeholder': 'Case title here'\n            }\n        )\n    )\n    theme = forms.CharField(\n        max_length=30,\n        widget=forms.TextInput(\n            attrs={\n                'style': 'border-color: blue;',\n                'placeholder': 'Case theme here'\n            }\n        )\n    )"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "sourceFile": "templates/cases/delete.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1666149905714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1666149991857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,13 @@\n \n \t\t\t<div class=\"alert alert-danger\" role=\"alert\">\n \t\t\t\t<h2>Are you want to delete this case ?</h2>\n \t\t\t</div>\n-\t\t\t<input type=\"submit\" value=\"Yes\" />\n-\t\t\t<a href=\"/\">Cancel </a>\n \n+\t\t\t<button type=\"submit\" class=\"btn btn-success\">Yes</button>\n+\t\t\t\n+\t\t\t<a href=\"/\" class=\"btn btn-danger\">Cancel </a>\n+\n \t\t</form>\n \t</div>\n \n \t{% endblock %}\n"
+                },
+                {
+                    "date": 1666150014979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n \t\t\t</div>\n \n \t\t\t<button type=\"submit\" class=\"btn btn-success\">Yes</button>\n \t\t\t\n-\t\t\t<a href=\"/\" class=\"btn btn-danger\">Cancel </a>\n+\t\t\t<a href=\"/cases/list/\" class=\"btn btn-danger\">Cancel </a>\n \n \t\t</form>\n \t</div>\n \n"
+                },
+                {
+                    "date": 1666150086258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \t\t\t</div>\n \t\t\t{% csrf_token %}\n \n \t\t\t<div class=\"alert alert-danger\" role=\"alert\">\n-\t\t\t\t<h2>Are you want to delete this case ?</h2>\n+\t\t\t\t<h2>Are you want to delete {{obj.title}} case ?</h2>\n \t\t\t</div>\n \n \t\t\t<button type=\"submit\" class=\"btn btn-success\">Yes</button>\n \t\t\t\n"
+                },
+                {
+                    "date": 1666150107839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \t\t\t</div>\n \t\t\t{% csrf_token %}\n \n \t\t\t<div class=\"alert alert-danger\" role=\"alert\">\n-\t\t\t\t<h2>Are you want to delete {{obj.title}} case ?</h2>\n+\t\t\t\t<h2>Are you want to delete {{ obj.title }} case ?</h2>\n \t\t\t</div>\n \n \t\t\t<button type=\"submit\" class=\"btn btn-success\">Yes</button>\n \t\t\t\n"
+                },
+                {
+                    "date": 1666150253068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \t\t\t</div>\n \t\t\t{% csrf_token %}\n \n \t\t\t<div class=\"alert alert-danger\" role=\"alert\">\n-\t\t\t\t<h2>Are you want to delete {{ obj.title }} case ?</h2>\n+\t\t\t\t<h2>Are you want to delete Case <b>{{ obj.title }}</b> ?</h2>\n \t\t\t</div>\n \n \t\t\t<button type=\"submit\" class=\"btn btn-success\">Yes</button>\n \t\t\t\n"
+                }
+            ],
+            "date": 1666149905714,
+            "name": "Commit-0",
+            "content": "{% extends '../base.html' %}\n\n{% block content %}\n\n\t\t<form method=\"POST\">\n\n\t\t\t<div class=\"alert alert-success\" role=\"alert\">\n\t\t\t\t<h2>X-Files Case Delete</h2>\n\t\t\t</div>\n\t\t\t{% csrf_token %}\n\n\t\t\t<div class=\"alert alert-danger\" role=\"alert\">\n\t\t\t\t<h2>Are you want to delete this case ?</h2>\n\t\t\t</div>\n\t\t\t<input type=\"submit\" value=\"Yes\" />\n\t\t\t<a href=\"/\">Cancel </a>\n\n\t\t</form>\n\t</div>\n\n\t{% endblock %}\n"
+        }
+    ]
+}

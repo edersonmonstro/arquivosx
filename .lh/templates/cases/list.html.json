@@ -3,11 +3,63 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1666134672151,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1666134866649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,12 @@\n                     <tr>\n                         <th scope=\"row\">{{ data.id }}</th>\n                         <td>{{ data.title }}</td>\n                         <td>({{ data.theme }})</td>\n-                        <td>?</td>\n+                        <td>\n+                            <a href=\"/cases/id/update\" class=\"btn btn-warning\">Update</a>\n+                            <a href=\"/cases/id/delete\" class=\"btn btn-danger\">Delete</a>\n+                        </td>\n                     </tr>\n                 {% empty %}\n                     <tr>\n                         <td colspan=\"4\">No Cases investigated and registered at moment</td>\n"
+                },
+                {
+                    "date": 1666134893605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,10 +23,10 @@\n                         <th scope=\"row\">{{ data.id }}</th>\n                         <td>{{ data.title }}</td>\n                         <td>({{ data.theme }})</td>\n                         <td>\n-                            <a href=\"/cases/id/update\" class=\"btn btn-warning\">Update</a>\n-                            <a href=\"/cases/id/delete\" class=\"btn btn-danger\">Delete</a>\n+                            <a href=\"/cases/{{ data.id }}/update\" class=\"btn btn-warning\">Update</a>\n+                            <a href=\"/cases/{{ data.id }}/delete\" class=\"btn btn-danger\">Delete</a>\n                         </td>\n                     </tr>\n                 {% empty %}\n                     <tr>\n"
+                },
+                {
+                    "date": 1666141059522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n <div class=\"main\">\n     \n         <div class=\"alert alert-success\" role=\"alert\">\n-            <h2>X-Files Cases List <a href=\"/cases/create/\" class=\"btn btn-success\">New X-File Case</a></h2>\n+            <h2>X-Files Cases List <a href=\"{% url 'case_update' None%}\" class=\"btn btn-success\">New X-File Case</a></h2>\n         </div>\n          \n         <table class=\"table table-success\">\n             <thead>\n"
+                },
+                {
+                    "date": 1666141074321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n <div class=\"main\">\n     \n         <div class=\"alert alert-success\" role=\"alert\">\n-            <h2>X-Files Cases List <a href=\"{% url 'case_update' None%}\" class=\"btn btn-success\">New X-File Case</a></h2>\n+            <h2>X-Files Cases List <a href=\"{% url 'case_update' data.id %}\" class=\"btn btn-success\">New X-File Case</a></h2>\n         </div>\n          \n         <table class=\"table table-success\">\n             <thead>\n"
+                },
+                {
+                    "date": 1666141090753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n <div class=\"main\">\n     \n         <div class=\"alert alert-success\" role=\"alert\">\n-            <h2>X-Files Cases List <a href=\"{% url 'case_update' data.id %}\" class=\"btn btn-success\">New X-File Case</a></h2>\n+            <h2>X-Files Cases List <a href=\"{% url 'case_update', data.id %}\" class=\"btn btn-success\">New X-File Case</a></h2>\n         </div>\n          \n         <table class=\"table table-success\">\n             <thead>\n"
+                },
+                {
+                    "date": 1666141102350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n <div class=\"main\">\n     \n         <div class=\"alert alert-success\" role=\"alert\">\n-            <h2>X-Files Cases List <a href=\"{% url 'case_update', data.id %}\" class=\"btn btn-success\">New X-File Case</a></h2>\n+            <h2>X-Files Cases List <a href=\"{% url 'case_update', id %}\" class=\"btn btn-success\">New X-File Case</a></h2>\n         </div>\n          \n         <table class=\"table table-success\">\n             <thead>\n"
+                },
+                {
+                    "date": 1666141134405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n <div class=\"main\">\n     \n         <div class=\"alert alert-success\" role=\"alert\">\n-            <h2>X-Files Cases List <a href=\"{% url 'case_update', id %}\" class=\"btn btn-success\">New X-File Case</a></h2>\n+            <h2>X-Files Cases List <a href=\"{% url 'case_update' 'data.id' %}\" class=\"btn btn-success\">New X-File Case</a></h2>\n         </div>\n          \n         <table class=\"table table-success\">\n             <thead>\n"
+                },
+                {
+                    "date": 1666148890288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n <div class=\"main\">\n     \n         <div class=\"alert alert-success\" role=\"alert\">\n-            <h2>X-Files Cases List <a href=\"{% url 'case_update' 'data.id' %}\" class=\"btn btn-success\">New X-File Case</a></h2>\n+            <h2>X-Files Cases List <a href=\"create/\" class=\"btn btn-success\">New X-File Case</a></h2>\n         </div>\n          \n         <table class=\"table table-success\">\n             <thead>\n"
+                },
+                {
+                    "date": 1666148910034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n <div class=\"main\">\n     \n         <div class=\"alert alert-success\" role=\"alert\">\n-            <h2>X-Files Cases List <a href=\"create/\" class=\"btn btn-success\">New X-File Case</a></h2>\n+            <h2>X-Files Cases List <a href=\"/create/\" class=\"btn btn-success\">New X-File Case</a></h2>\n         </div>\n          \n         <table class=\"table table-success\">\n             <thead>\n"
+                },
+                {
+                    "date": 1666148925702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n <div class=\"main\">\n     \n         <div class=\"alert alert-success\" role=\"alert\">\n-            <h2>X-Files Cases List <a href=\"/create/\" class=\"btn btn-success\">New X-File Case</a></h2>\n+            <h2>X-Files Cases List <a href=\"/cases/create/\" class=\"btn btn-success\">New X-File Case</a></h2>\n         </div>\n          \n         <table class=\"table table-success\">\n             <thead>\n"
+                },
+                {
+                    "date": 1666150392455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n                         <td>({{ data.theme }})</td>\n                         <td>\n                             <a href=\"/cases/{{ data.id }}/update\" class=\"btn btn-warning\">Update</a>\n                             <a href=\"/cases/{{ data.id }}/delete\" class=\"btn btn-danger\">Delete</a>\n+                            <a href=\"/cases/{{ data.id }}/details\" class=\"btn btn-default\">Details</a>\n                         </td>\n                     </tr>\n                 {% empty %}\n                     <tr>\n"
+                },
+                {
+                    "date": 1666150429656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n                         <td>({{ data.theme }})</td>\n                         <td>\n                             <a href=\"/cases/{{ data.id }}/update\" class=\"btn btn-warning\">Update</a>\n                             <a href=\"/cases/{{ data.id }}/delete\" class=\"btn btn-danger\">Delete</a>\n-                            <a href=\"/cases/{{ data.id }}/details\" class=\"btn btn-default\">Details</a>\n+                            <a href=\"/cases/{{ data.id }}/details\" class=\"btn btn-primary\">Details</a>\n                         </td>\n                     </tr>\n                 {% empty %}\n                     <tr>\n"
+                },
+                {
+                    "date": 1666150491182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n                         <td>({{ data.theme }})</td>\n                         <td>\n                             <a href=\"/cases/{{ data.id }}/update\" class=\"btn btn-warning\">Update</a>\n                             <a href=\"/cases/{{ data.id }}/delete\" class=\"btn btn-danger\">Delete</a>\n-                            <a href=\"/cases/{{ data.id }}/details\" class=\"btn btn-primary\">Details</a>\n+                            <a href=\"/cases/{{ data.id }}\" class=\"btn btn-primary\">Details</a>\n                         </td>\n                     </tr>\n                 {% empty %}\n                     <tr>\n"
                 }
             ],
             "date": 1666134672151,

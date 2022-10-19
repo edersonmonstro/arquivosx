@@ -15,3 +15,23 @@ class CasesForm(forms.ModelForm):
             "title",
             "theme",
         ]
+
+# class CasesForm(forms.ModelForm):
+#     title = forms.CharField(
+#         max_length=30,
+#         widget=forms.TextInput(
+#             attrs={
+#                 'style': 'border-color: blue;',
+#                 'placeholder': 'Case title here'
+#             }
+#         )
+#     )
+#     theme = forms.CharField(
+#         max_length=30,
+#         widget=forms.TextInput(
+#             attrs={
+#                 'style': 'border-color: blue;',
+#                 'placeholder': 'Case theme here'
+#             }
+#         )
+#     )

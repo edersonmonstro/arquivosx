@@ -2,30 +2,28 @@
 
 {% block content %}
 
-<form method="POST" enctype="multipart/form-data" action=".">
+<form method="post" action="/cases/update/">
  
-    <form>
-
         <!-- Security token -->
         {% csrf_token %}
 
         <div class="alert alert-success" role="alert">
-            <h2>X-Files New Case</h2>
+            <h2>X-Files Case Update</h2>
         </div>
 
+        <input type="hidden" class="form-control" name="id" id="id" value="{{ obj.id }}">
+       
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title">
+            <input type="text" class="form-control" name="title" id="title" value="{{ obj.title }}">
         </div>
 
         <div class="mb-3">
             <label for="title" class="form-label">Theme</label>
-            <input type="text" class="form-control" name="theme">
+            <input type="text" class="form-control" name="theme" id="theme" value="{{ obj.theme }}">
         </div>
        
         <button type="submit" class="btn btn-success">Submit</button>
-      </form>
-
     <!-- Using the formset 
     {{ form.as_p }}-->
      

@@ -1,9 +1,12 @@
-<div class="main">
-	
-	<!-- Specify fields to be displayed -->
-	{{ data.id }}<br/>
-    {{ data.title }}<br/>
-	{{ data.theme }}<br/>
+{% extends '../base.html' %}
 
-</div>
+{% block content %}
+
+	<div class="alert alert-success" role="alert">
+		<h2>X-Files Case <b>{{ data.id }} - {{ data.title }} ({{ data.theme }})</b></h2>
+	</div>
+	<a href="/cases/list/" class="btn btn-success">Back to List </a>
+
+{% endblock %}
+
 

@@ -23,7 +23,11 @@
                         <th scope="row">{{ data.id }}</th>
                         <td>{{ data.title }}</td>
                         <td>({{ data.theme }})</td>
-                        <td>?</td>
+                        <td>
+                            <a href="/cases/{{ data.id }}/update" class="btn btn-warning">Update</a>
+                            <a href="/cases/{{ data.id }}/delete" class="btn btn-danger">Delete</a>
+                            <a href="/cases/{{ data.id }}" class="btn btn-primary">Details</a>
+                        </td>
                     </tr>
                 {% empty %}
                     <tr>

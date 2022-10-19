@@ -1,0 +1,330 @@
+{
+    "sourceFile": "apps/cases/views.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 78,
+            "patches": [
+                {
+                    "date": 1666134918912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1666134962913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n  \n     # add form dictionary to context\n     context[\"form\"] = form\n  \n-    return render(request, \"cases/update.html\", context)\n+    return render(request, \"cases/create.html\", context)\n \n def delete(request, id):\n     context = {}\n     obj = get_object_or_404(Case, id = str(id))\n"
+                },
+                {
+                    "date": 1666135023298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,10 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id):\n     context = {}\n-    #obj = get_object_or_404(CasosModel, id = id)\n-    obj = Case.objects.get(id=id)\n+    obj = get_object_or_404(CasosModel, id = id)\n+    #obj = Case.objects.get(id=id)\n     print(type(obj))\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n"
+                },
+                {
+                    "date": 1666135056907,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id):\n     context = {}\n-    obj = get_object_or_404(CasosModel, id = id)\n+    obj = get_object_or_404(Case, id = id)\n     #obj = Case.objects.get(id=id)\n     print(type(obj))\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n"
+                },
+                {
+                    "date": 1666135110393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,10 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id):\n     context = {}\n-    obj = get_object_or_404(Case, id = id)\n-    #obj = Case.objects.get(id=id)\n+    #obj = get_object_or_404(Case, id = id)\n+    obj = Case.objects.get(id=id)\n     print(type(obj))\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n"
+                },
+                {
+                    "date": 1666135193863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id):\n     context = {}\n-    #obj = get_object_or_404(Case, id = id)\n+    #obj = get_object_or_404(CasosModel, id = id)\n     obj = Case.objects.get(id=id)\n     print(type(obj))\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n@@ -47,10 +47,11 @@\n  \n     # add form dictionary to context\n     context[\"form\"] = form\n  \n-    return render(request, \"cases/create.html\", context)\n+    return render(request, \"update.html\", context)\n \n+\n def delete(request, id):\n     context = {}\n     obj = get_object_or_404(Case, id = str(id))\n     if request.method ==\"POST\":\n"
+                },
+                {
+                    "date": 1666135226450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n  \n     # add form dictionary to context\n     context[\"form\"] = form\n  \n-    return render(request, \"update.html\", context)\n+    return render(request, \"/cases/update.html\", context)\n \n \n def delete(request, id):\n     context = {}\n"
+                },
+                {
+                    "date": 1666135239516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n  \n     # add form dictionary to context\n     context[\"form\"] = form\n  \n-    return render(request, \"/cases/update.html\", context)\n+    return render(request, \"cases/update.html\", context)\n \n \n def delete(request, id):\n     context = {}\n"
+                },
+                {
+                    "date": 1666135294846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n  \n     # add form dictionary to context\n     context[\"form\"] = form\n  \n-    return render(request, \"cases/update.html\", context)\n+    return render(request, \"cases/create.html\", context)\n \n \n def delete(request, id):\n     context = {}\n"
+                },
+                {
+                    "date": 1666136131918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,11 +32,12 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id):\n     context = {}\n-    #obj = get_object_or_404(CasosModel, id = id)\n-    obj = Case.objects.get(id=id)\n-    print(type(obj))\n+    print(id)\n+    obj = get_object_or_404(Case, id = id)\n+    #obj = Case.objects.get(id=id)\n+    \n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n     # save the data from the form and\n"
+                },
+                {
+                    "date": 1666136176505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,12 +32,13 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id):\n     context = {}\n-    print(id)\n+    \n     obj = get_object_or_404(Case, id = id)\n     #obj = Case.objects.get(id=id)\n     \n+    print(obj)\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n     # save the data from the form and\n"
+                },
+                {
+                    "date": 1666136227193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     \n     obj = get_object_or_404(Case, id = id)\n     #obj = Case.objects.get(id=id)\n     \n-    print(obj)\n+    print(obj.id)\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n     # save the data from the form and\n"
+                },
+                {
+                    "date": 1666136254668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,8 @@\n     \n     obj = get_object_or_404(Case, id = id)\n     #obj = Case.objects.get(id=id)\n     \n-    print(obj.id)\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n     # save the data from the form and\n"
+                },
+                {
+                    "date": 1666136265919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,9 @@\n     \n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n+    print(form)\n     # save the data from the form and\n     # redirect to detail_view\n     if form.is_valid():\n         form.save()\n"
+                },
+                {
+                    "date": 1666136455783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n     #obj = Case.objects.get(id=id)\n     \n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n-\n+    \n     print(form)\n     # save the data from the form and\n     # redirect to detail_view\n     if form.is_valid():\n"
+                },
+                {
+                    "date": 1666136654578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n  \n     # add form dictionary to context\n     context[\"form\"] = form\n  \n-    return render(request, \"cases/create.html\", context)\n+    return render(request, \"cases/update.html\", context)\n \n \n def delete(request, id):\n     context = {}\n"
+                },
+                {
+                    "date": 1666138759665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,29 +31,42 @@\n     context[\"data\"] = Case.objects.get(id = id)\n     return render(request, \"detail.html\", context)\n \n def update(request, id):\n-    context = {}\n+    context ={}\n+ \n+    # add the dictionary during initialization\n+    form = CasesForm(request.POST or None)\n+    if form.is_valid():\n+        form.save()\n+        return HttpResponseRedirect(\"/cases/list/\")\n+         \n+    context['form']= form\n+    return render(request, \"cases/list.html\", context)\n     \n-    obj = get_object_or_404(Case, id = id)\n-    #obj = Case.objects.get(id=id)\n+    # context = {}\n     \n-    # pass the object as instance in form\n-    form = CasesForm(request.POST or None, instance=obj)\n+    # obj = get_object_or_404(Case, id = id)\n+    # #obj = Case.objects.get(id=id)\n     \n-    print(form)\n-    # save the data from the form and\n-    # redirect to detail_view\n-    if form.is_valid():\n-        form.save()\n-        return HttpResponseRedirect(\"/cases/list/\")\n+    # # pass the object as instance in form\n+    # form = CasesForm(request.POST or None, instance=obj)\n+    \n+    # print(form)\n+    # # save the data from the form and\n+    # # redirect to detail_view\n+    # if form.is_valid():\n+    #     form.save()\n+    #     return HttpResponseRedirect(\"/cases/list/\")\n  \n-    # add form dictionary to context\n-    context[\"form\"] = form\n+    # # add form dictionary to context\n+    # context[\"form\"] = form\n  \n-    return render(request, \"cases/update.html\", context)\n+    # return render(request, \"cases/update.html\", context)\n \n+    \n \n+\n def delete(request, id):\n     context = {}\n     obj = get_object_or_404(Case, id = str(id))\n     if request.method ==\"POST\":\n"
+                },
+                {
+                    "date": 1666138769504,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n         form.save()\n         return HttpResponseRedirect(\"/cases/list/\")\n          \n     context['form']= form\n-    return render(request, \"cases/list.html\", context)\n+    return render(request, \"cases/update.html\", context)\n     \n     # context = {}\n     \n     # obj = get_object_or_404(Case, id = id)\n"
+                },
+                {
+                    "date": 1666138967026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,11 +32,10 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id):\n     context ={}\n- \n-    # add the dictionary during initialization\n-    form = CasesForm(request.POST or None)\n+    obj = get_object_or_404(Case, id = id)\n+    form = CasesForm(request.POST or None, instance=obj)\n     if form.is_valid():\n         form.save()\n         return HttpResponseRedirect(\"/cases/list/\")\n          \n"
+                },
+                {
+                    "date": 1666138978728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,10 @@\n \n def update(request, id):\n     context ={}\n     obj = get_object_or_404(Case, id = id)\n-    form = CasesForm(request.POST or None, instance=obj)\n+    form = CaseForm(request.POST or None, instance=obj)\n+    \n     if form.is_valid():\n         form.save()\n         return HttpResponseRedirect(\"/cases/list/\")\n          \n"
+                },
+                {
+                    "date": 1666139028084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,10 +33,14 @@\n \n def update(request, id):\n     context ={}\n     obj = get_object_or_404(Case, id = id)\n-    form = CaseForm(request.POST or None, instance=obj)\n+    form = CasesForm(request.POST or None, instance=obj)\n     \n+    print(id)\n+    print(obj)\n+    print(form)\n+\n     if form.is_valid():\n         form.save()\n         return HttpResponseRedirect(\"/cases/list/\")\n          \n"
+                },
+                {
+                    "date": 1666139088783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n \n def update(request, id):\n     context ={}\n     obj = get_object_or_404(Case, id = id)\n-    form = CasesForm(request.POST or None, instance=obj)\n+    form = CasesForm(request.POST or None, instance)\n     \n     print(id)\n     print(obj)\n     print(form)\n"
+                },
+                {
+                    "date": 1666139104359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n \n def update(request, id):\n     context ={}\n     obj = get_object_or_404(Case, id = id)\n-    form = CasesForm(request.POST or None, instance)\n+    form = CasesForm(request.POST or None, instance=obj)\n     \n     print(id)\n     print(obj)\n     print(form)\n"
+                },
+                {
+                    "date": 1666140535603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n         form.save()\n         return HttpResponseRedirect(\"/cases/list/\")\n          \n     context['form']= form\n-    return render(request, \"cases/update.html\", context)\n+    return render(request, \"cases/update.html\", {'form': form})\n     \n     # context = {}\n     \n     # obj = get_object_or_404(Case, id = id)\n"
+                },
+                {
+                    "date": 1666140633937,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,12 +38,12 @@\n     \n     print(id)\n     print(obj)\n     print(form)\n-\n-    if form.is_valid():\n-        form.save()\n-        return HttpResponseRedirect(\"/cases/list/\")\n+    if request.method == 'POST':\n+        if form.is_valid():\n+            form.save()\n+            return HttpResponseRedirect(\"/cases/list/\")\n          \n     context['form']= form\n     return render(request, \"cases/update.html\", {'form': form})\n     \n"
+                },
+                {
+                    "date": 1666140640996,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,11 +35,8 @@\n     context ={}\n     obj = get_object_or_404(Case, id = id)\n     form = CasesForm(request.POST or None, instance=obj)\n     \n-    print(id)\n-    print(obj)\n-    print(form)\n     if request.method == 'POST':\n         if form.is_valid():\n             form.save()\n             return HttpResponseRedirect(\"/cases/list/\")\n"
+                },
+                {
+                    "date": 1666140652998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,11 +33,12 @@\n \n def update(request, id):\n     context ={}\n     obj = get_object_or_404(Case, id = id)\n-    form = CasesForm(request.POST or None, instance=obj)\n     \n+    \n     if request.method == 'POST':\n+        form = CasesForm(request.POST or None, instance=obj)\n         if form.is_valid():\n             form.save()\n             return HttpResponseRedirect(\"/cases/list/\")\n          \n"
+                },
+                {
+                    "date": 1666140702354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,11 @@\n         form = CasesForm(request.POST or None, instance=obj)\n         if form.is_valid():\n             form.save()\n             return HttpResponseRedirect(\"/cases/list/\")\n-         \n-    context['form']= form\n+    else:\n+        form = ContactForm()\n+        #context['form']= form\n     return render(request, \"cases/update.html\", {'form': form})\n     \n     # context = {}\n     \n"
+                },
+                {
+                    "date": 1666140709509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         if form.is_valid():\n             form.save()\n             return HttpResponseRedirect(\"/cases/list/\")\n     else:\n-        form = ContactForm()\n+        form = CasesForm()\n         #context['form']= form\n     return render(request, \"cases/update.html\", {'form': form})\n     \n     # context = {}\n"
+                },
+                {
+                    "date": 1666140745410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,11 +34,11 @@\n def update(request, id):\n     context ={}\n     obj = get_object_or_404(Case, id = id)\n     \n-    \n+    form = CasesForm(request.POST or None, instance=obj)\n     if request.method == 'POST':\n-        form = CasesForm(request.POST or None, instance=obj)\n+       \n         if form.is_valid():\n             form.save()\n             return HttpResponseRedirect(\"/cases/list/\")\n     else:\n"
+                },
+                {
+                    "date": 1666140764952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,10 @@\n        \n         if form.is_valid():\n             form.save()\n             return HttpResponseRedirect(\"/cases/list/\")\n-    else:\n-        form = CasesForm()\n+    #else:\n+        #form = CasesForm()\n         #context['form']= form\n     return render(request, \"cases/update.html\", {'form': form})\n     \n     # context = {}\n"
+                },
+                {
+                    "date": 1666140863960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,42 +30,28 @@\n     context = {}\n     context[\"data\"] = Case.objects.get(id = id)\n     return render(request, \"detail.html\", context)\n \n-def update(request, id):\n-    context ={}\n+def update(request, id) :\n+    context = {}\n+    \n     obj = get_object_or_404(Case, id = id)\n+    #obj = Case.objects.get(id=id)\n     \n+    # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n-    if request.method == 'POST':\n-       \n-        if form.is_valid():\n-            form.save()\n-            return HttpResponseRedirect(\"/cases/list/\")\n-    #else:\n-        #form = CasesForm()\n-        #context['form']= form\n-    return render(request, \"cases/update.html\", {'form': form})\n     \n-    # context = {}\n-    \n-    # obj = get_object_or_404(Case, id = id)\n-    # #obj = Case.objects.get(id=id)\n-    \n-    # # pass the object as instance in form\n-    # form = CasesForm(request.POST or None, instance=obj)\n-    \n-    # print(form)\n-    # # save the data from the form and\n-    # # redirect to detail_view\n-    # if form.is_valid():\n-    #     form.save()\n-    #     return HttpResponseRedirect(\"/cases/list/\")\n+    print(form)\n+    # save the data from the form and\n+    # redirect to detail_view\n+    if form.is_valid():\n+        form.save()\n+        return HttpResponseRedirect(\"/cases/list/\")\n  \n-    # # add form dictionary to context\n-    # context[\"form\"] = form\n+    # add form dictionary to context\n+    context[\"form\"] = form\n  \n-    # return render(request, \"cases/update.html\", context)\n+    return render(request, \"cases/update.html\", context)\n \n     \n \n \n"
+                },
+                {
+                    "date": 1666141411127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,16 +32,14 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id) :\n     context = {}\n-    \n-    obj = get_object_or_404(Case, id = id)\n-    #obj = Case.objects.get(id=id)\n-    \n+    #obj = get_object_or_404(CasosModel, id = id)\n+    obj = Case.objects.get(id=id)\n+    print(type(obj))\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n-    \n-    print(form)\n+\n     # save the data from the form and\n     # redirect to detail_view\n     if form.is_valid():\n         form.save()\n"
+                },
+                {
+                    "date": 1666142486795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,13 @@\n         form.save()\n         return HttpResponseRedirect(\"/cases/list/\")\n  \n     # add form dictionary to context\n-    context[\"form\"] = form\n+    #context[\"form\"] = form\n+    context = {\n+        'form': form,\n+        'obj': obj,\n+    }\n  \n     return render(request, \"cases/update.html\", context)\n \n     \n"
+                },
+                {
+                    "date": 1666142623040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,11 +40,12 @@\n     form = CasesForm(request.POST or None, instance=obj)\n \n     # save the data from the form and\n     # redirect to detail_view\n-    if form.is_valid():\n-        form.save()\n-        return HttpResponseRedirect(\"/cases/list/\")\n+    if request.method ==\"POST\":\n+        if form.is_valid():\n+            form.save()\n+            return HttpResponseRedirect(\"/cases/list/\")\n  \n     # add form dictionary to context\n     #context[\"form\"] = form\n     context = {\n"
+                },
+                {
+                    "date": 1666144665097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,10 @@\n     # save the data from the form and\n     # redirect to detail_view\n     if request.method ==\"POST\":\n         if form.is_valid():\n+            obj.title = request.POST['title']\n+            obj.theme = request.POST['theme']\n             form.save()\n             return HttpResponseRedirect(\"/cases/list/\")\n  \n     # add form dictionary to context\n"
+                },
+                {
+                    "date": 1666145053286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n def update(request, id) :\n     context = {}\n     #obj = get_object_or_404(CasosModel, id = id)\n     obj = Case.objects.get(id=id)\n-    print(type(obj))\n+    print(id)\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n     # save the data from the form and\n"
+                },
+                {
+                    "date": 1666145091642,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,11 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method ==\"POST\":\n+        print('post entrou')\n         if form.is_valid():\n+            print('post entrou valido')\n             obj.title = request.POST['title']\n             obj.theme = request.POST['theme']\n             form.save()\n             return HttpResponseRedirect(\"/cases/list/\")\n"
+                },
+                {
+                    "date": 1666146681856,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,15 +34,14 @@\n def update(request, id) :\n     context = {}\n     #obj = get_object_or_404(CasosModel, id = id)\n     obj = Case.objects.get(id=id)\n-    print(id)\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n     # save the data from the form and\n     # redirect to detail_view\n-    if request.method ==\"POST\":\n+    if request.method == \"POST\":\n         print('post entrou')\n         if form.is_valid():\n             print('post entrou valido')\n             obj.title = request.POST['title']\n"
+                },
+                {
+                    "date": 1666146698092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n def update(request, id) :\n     context = {}\n     #obj = get_object_or_404(CasosModel, id = id)\n     obj = Case.objects.get(id=id)\n+    print(id)\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n     # save the data from the form and\n"
+                },
+                {
+                    "date": 1666146722360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,10 @@\n             obj.title = request.POST['title']\n             obj.theme = request.POST['theme']\n             form.save()\n             return HttpResponseRedirect(\"/cases/list/\")\n- \n+    else:\n+        print('nao post')\n     # add form dictionary to context\n     #context[\"form\"] = form\n     context = {\n         'form': form,\n"
+                },
+                {
+                    "date": 1666146728504,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,11 +59,8 @@\n     }\n  \n     return render(request, \"cases/update.html\", context)\n \n-    \n-\n-\n def delete(request, id):\n     context = {}\n     obj = get_object_or_404(Case, id = str(id))\n     if request.method ==\"POST\":\n"
+                },
+                {
+                    "date": 1666146816636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,12 +38,14 @@\n     print(id)\n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n+    print(request.method)\n+\n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"POST\":\n-        print('post entrou')\n+        \n         if form.is_valid():\n             print('post entrou valido')\n             obj.title = request.POST['title']\n             obj.theme = request.POST['theme']\n"
+                },
+                {
+                    "date": 1666146843701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n     print(request.method)\n \n     # save the data from the form and\n     # redirect to detail_view\n-    if request.method == \"POST\":\n+    if request.method == \"GET\":\n         \n         if form.is_valid():\n             print('post entrou valido')\n             obj.title = request.POST['title']\n"
+                },
+                {
+                    "date": 1666147035120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        \n+        print('GETICO')\n         if form.is_valid():\n             print('post entrou valido')\n             obj.title = request.POST['title']\n             obj.theme = request.POST['theme']\n"
+                },
+                {
+                    "date": 1666147096232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,15 +43,13 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        print('GETICO')\n-        if form.is_valid():\n-            print('post entrou valido')\n-            obj.title = request.POST['title']\n-            obj.theme = request.POST['theme']\n-            form.save()\n-            return HttpResponseRedirect(\"/cases/list/\")\n+        print('post entrou valido')\n+        obj.title = request.POST['title']\n+        obj.theme = request.POST['theme']\n+        form.save()\n+        return HttpResponseRedirect(\"/cases/list/\")\n     else:\n         print('nao post')\n     # add form dictionary to context\n     #context[\"form\"] = form\n"
+                },
+                {
+                    "date": 1666147151804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n         print('post entrou valido')\n-        obj.title = request.POST['title']\n+        obj.title = request.POST['obj.title']\n         obj.theme = request.POST['theme']\n         form.save()\n         return HttpResponseRedirect(\"/cases/list/\")\n     else:\n"
+                },
+                {
+                    "date": 1666147321351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,12 +43,14 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        print('post entrou valido')\n-        obj.title = request.POST['obj.title']\n-        obj.theme = request.POST['theme']\n-        form.save()\n+        title = request.GET['title']\n+        theme = request.GET['theme']\n+        member = Case.objects.get(id=id)\n+        member.title = title\n+        member.theme = theme\n+        member.save()\n         return HttpResponseRedirect(\"/cases/list/\")\n     else:\n         print('nao post')\n     # add form dictionary to context\n"
+                },
+                {
+                    "date": 1666147345013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,10 +43,10 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        title = request.GET['title']\n-        theme = request.GET['theme']\n+        title = request.POST['title']\n+        theme = request.POST['theme']\n         member = Case.objects.get(id=id)\n         member.title = title\n         member.theme = theme\n         member.save()\n"
+                },
+                {
+                    "date": 1666147528851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,10 +43,10 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        title = request.POST['title']\n-        theme = request.POST['theme']\n+        title = request.GET['title']\n+        theme = request.GET['theme']\n         member = Case.objects.get(id=id)\n         member.title = title\n         member.theme = theme\n         member.save()\n"
+                },
+                {
+                    "date": 1666147918508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        title = request.GET['title']\n+        title = request.POST.get('title', False)\n         theme = request.GET['theme']\n         member = Case.objects.get(id=id)\n         member.title = title\n         member.theme = theme\n"
+                },
+                {
+                    "date": 1666147949957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n         title = request.POST.get('title', False)\n-        theme = request.GET['theme']\n+        theme = request.POST.get('theme', False)\n         member = Case.objects.get(id=id)\n         member.title = title\n         member.theme = theme\n         member.save()\n"
+                },
+                {
+                    "date": 1666147961457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,12 +45,12 @@\n     # redirect to detail_view\n     if request.method == \"GET\":\n         title = request.POST.get('title', False)\n         theme = request.POST.get('theme', False)\n-        member = Case.objects.get(id=id)\n-        member.title = title\n-        member.theme = theme\n-        member.save()\n+        case = Case.objects.get(id=id)\n+        case.title = title\n+        case.theme = theme\n+        case.save()\n         return HttpResponseRedirect(\"/cases/list/\")\n     else:\n         print('nao post')\n     # add form dictionary to context\n"
+                },
+                {
+                    "date": 1666147981663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,10 +43,10 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        title = request.POST.get('title', False)\n-        theme = request.POST.get('theme', False)\n+        title = request.POST.get('title')\n+        theme = request.POST.get('theme')\n         case = Case.objects.get(id=id)\n         case.title = title\n         case.theme = theme\n         case.save()\n"
+                },
+                {
+                    "date": 1666148006052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,10 +43,10 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        title = request.POST.get('title')\n-        theme = request.POST.get('theme')\n+        title = request.GET.get('title', False)\n+        theme = request.GET.get('theme', False)\n         case = Case.objects.get(id=id)\n         case.title = title\n         case.theme = theme\n         case.save()\n"
+                },
+                {
+                    "date": 1666148040076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,10 +43,10 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        title = request.GET.get('title', False)\n-        theme = request.GET.get('theme', False)\n+        title = request.GET.get('title')\n+        theme = request.GET.get('theme')\n         case = Case.objects.get(id=id)\n         case.title = title\n         case.theme = theme\n         case.save()\n"
+                },
+                {
+                    "date": 1666148065518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,10 +43,10 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        title = request.GET.get('title')\n-        theme = request.GET.get('theme')\n+        title = request.GET.get('tit')\n+        theme = request.GET.get('them')\n         case = Case.objects.get(id=id)\n         case.title = title\n         case.theme = theme\n         case.save()\n"
+                },
+                {
+                    "date": 1666148176993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,10 +43,10 @@\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n-        title = request.GET.get('tit')\n-        theme = request.GET.get('them')\n+        title = request.POST.get('tit')\n+        theme = request.POST.get('them')\n         case = Case.objects.get(id=id)\n         case.title = title\n         case.theme = theme\n         case.save()\n"
+                },
+                {
+                    "date": 1666148351796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,13 +33,9 @@\n \n def update(request, id) :\n     context = {}\n     #obj = get_object_or_404(CasosModel, id = id)\n-    obj = Case.objects.get(id=id)\n-    print(id)\n-    # pass the object as instance in form\n-    form = CasesForm(request.POST or None, instance=obj)\n-\n+    \n     print(request.method)\n \n     # save the data from the form and\n     # redirect to detail_view\n@@ -51,17 +47,22 @@\n         case.theme = theme\n         case.save()\n         return HttpResponseRedirect(\"/cases/list/\")\n     else:\n+        obj = Case.objects.get(id=id)\n+ \n+        # pass the object as instance in form\n+        form = CasesForm(request.POST or None, instance=obj)\n+\n         print('nao post')\n-    # add form dictionary to context\n-    #context[\"form\"] = form\n-    context = {\n-        'form': form,\n-        'obj': obj,\n-    }\n+        # add form dictionary to context\n+        #context[\"form\"] = form\n+        context = {\n+            'form': form,\n+            'obj': obj,\n+        }\n  \n-    return render(request, \"cases/update.html\", context)\n+        return render(request, \"cases/update.html\", context)\n \n def delete(request, id):\n     context = {}\n     obj = get_object_or_404(Case, id = str(id))\n"
+                },
+                {
+                    "date": 1666148390665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n def update(request, id) :\n     context = {}\n     #obj = get_object_or_404(CasosModel, id = id)\n     \n-    print(request.method)\n+    print(request.POST)\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n"
+                },
+                {
+                    "date": 1666148426564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n def update(request, id) :\n     context = {}\n     #obj = get_object_or_404(CasosModel, id = id)\n     \n-    print(request.POST)\n+    print(request)\n \n     # save the data from the form and\n     # redirect to detail_view\n     if request.method == \"GET\":\n"
+                },
+                {
+                    "date": 1666148731659,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -72,5 +72,15 @@\n         # after deleting redirect to\n         # home page\n         return HttpResponseRedirect(\"/cases/list/\")\n  \n-    return render(request, \"cases/delete.html\", context)\n\\ No newline at end of file\n+    return render(request, \"cases/delete.html\", context)\n+\n+def updaterecord(request):\n+  first = request.POST['title']\n+  last = request.POST['theme']\n+  id = request.POST['id']\n+  member = Case.objects.get(id=id)\n+  member.firstname = first\n+  member.lastname = last\n+  member.save()\n+  return HttpResponseRedirect(reverse('index'))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666148754887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,5 +82,5 @@\n   member = Case.objects.get(id=id)\n   member.firstname = first\n   member.lastname = last\n   member.save()\n-  return HttpResponseRedirect(reverse('index'))\n\\ No newline at end of file\n+  return HttpResponseRedirect(\"/cases/list/\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666148771217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,32 +38,23 @@\n     print(request)\n \n     # save the data from the form and\n     # redirect to detail_view\n-    if request.method == \"GET\":\n-        title = request.POST.get('tit')\n-        theme = request.POST.get('them')\n-        case = Case.objects.get(id=id)\n-        case.title = title\n-        case.theme = theme\n-        case.save()\n-        return HttpResponseRedirect(\"/cases/list/\")\n-    else:\n-        obj = Case.objects.get(id=id)\n- \n-        # pass the object as instance in form\n-        form = CasesForm(request.POST or None, instance=obj)\n+    obj = Case.objects.get(id=id)\n \n-        print('nao post')\n-        # add form dictionary to context\n-        #context[\"form\"] = form\n-        context = {\n-            'form': form,\n-            'obj': obj,\n-        }\n- \n-        return render(request, \"cases/update.html\", context)\n+    # pass the object as instance in form\n+    form = CasesForm(request.POST or None, instance=obj)\n \n+    print('nao post')\n+    # add form dictionary to context\n+    #context[\"form\"] = form\n+    context = {\n+        'form': form,\n+        'obj': obj,\n+    }\n+\n+    return render(request, \"cases/update.html\", context)\n+\n def delete(request, id):\n     context = {}\n     obj = get_object_or_404(Case, id = str(id))\n     if request.method ==\"POST\":\n"
+                },
+                {
+                    "date": 1666149020308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,19 +33,16 @@\n \n def update(request, id) :\n     context = {}\n     #obj = get_object_or_404(CasosModel, id = id)\n-    \n-    print(request)\n \n     # save the data from the form and\n     # redirect to detail_view\n     obj = Case.objects.get(id=id)\n \n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n \n-    print('nao post')\n     # add form dictionary to context\n     #context[\"form\"] = form\n     context = {\n         'form': form,\n"
+                },
+                {
+                    "date": 1666149028338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,8 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id) :\n     context = {}\n-    #obj = get_object_or_404(CasosModel, id = id)\n \n     # save the data from the form and\n     # redirect to detail_view\n     obj = Case.objects.get(id=id)\n"
+                },
+                {
+                    "date": 1666149033915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id) :\n     context = {}\n-\n+    \n     # save the data from the form and\n     # redirect to detail_view\n     obj = Case.objects.get(id=id)\n \n"
+                },
+                {
+                    "date": 1666149048479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,12 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id) :\n     context = {}\n+    #obj = get_object_or_404(CasosModel, id = id)\n     \n+    print(request)\n+\n     # save the data from the form and\n     # redirect to detail_view\n     obj = Case.objects.get(id=id)\n \n"
+                },
+                {
+                    "date": 1666149053843,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n def update(request, id) :\n     context = {}\n     #obj = get_object_or_404(CasosModel, id = id)\n     \n-    print(request)\n+    #print(request)\n \n     # save the data from the form and\n     # redirect to detail_view\n     obj = Case.objects.get(id=id)\n"
+                },
+                {
+                    "date": 1666149125071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,14 +32,9 @@\n     return render(request, \"detail.html\", context)\n \n def update(request, id) :\n     context = {}\n-    #obj = get_object_or_404(CasosModel, id = id)\n-    \n-    #print(request)\n \n-    # save the data from the form and\n-    # redirect to detail_view\n     obj = Case.objects.get(id=id)\n \n     # pass the object as instance in form\n     form = CasesForm(request.POST or None, instance=obj)\n@@ -65,12 +60,13 @@\n  \n     return render(request, \"cases/delete.html\", context)\n \n def updaterecord(request):\n-  first = request.POST['title']\n-  last = request.POST['theme']\n-  id = request.POST['id']\n-  member = Case.objects.get(id=id)\n-  member.firstname = first\n-  member.lastname = last\n-  member.save()\n-  return HttpResponseRedirect(\"/cases/list/\")\n\\ No newline at end of file\n+    print(request.method)\n+    first = request.POST['title']\n+    last = request.POST['theme']\n+    id = request.POST['id']\n+    member = Case.objects.get(id=id)\n+    member.firstname = first\n+    member.lastname = last\n+    member.save()\n+    return HttpResponseRedirect(\"/cases/list/\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666149372313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,8 +64,11 @@\n     print(request.method)\n     first = request.POST['title']\n     last = request.POST['theme']\n     id = request.POST['id']\n+    print(first)\n+    print(last)\n+    print(id)\n     member = Case.objects.get(id=id)\n     member.firstname = first\n     member.lastname = last\n     member.save()\n"
+                },
+                {
+                    "date": 1666149458779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,10 +66,11 @@\n     last = request.POST['theme']\n     id = request.POST['id']\n     print(first)\n     print(last)\n-    print(id)\n+    \n     member = Case.objects.get(id=id)\n+    print(member)\n     member.firstname = first\n     member.lastname = last\n     member.save()\n     return HttpResponseRedirect(\"/cases/list/\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666149495548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -71,6 +71,7 @@\n     member = Case.objects.get(id=id)\n     print(member)\n     member.firstname = first\n     member.lastname = last\n+    print(member)\n     member.save()\n     return HttpResponseRedirect(\"/cases/list/\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666149518284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,9 @@\n     print(last)\n     \n     member = Case.objects.get(id=id)\n     print(member)\n-    member.firstname = first\n-    member.lastname = last\n+    member.title = first\n+    member.theme = last\n     print(member)\n     member.save()\n     return HttpResponseRedirect(\"/cases/list/\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666150074056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,18 +60,12 @@\n  \n     return render(request, \"cases/delete.html\", context)\n \n def updaterecord(request):\n-    print(request.method)\n     first = request.POST['title']\n     last = request.POST['theme']\n     id = request.POST['id']\n-    print(first)\n-    print(last)\n-    \n     member = Case.objects.get(id=id)\n-    print(member)\n     member.title = first\n     member.theme = last\n-    print(member)\n     member.save()\n     return HttpResponseRedirect(\"/cases/list/\")\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1666150144089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,8 +57,11 @@\n         # after deleting redirect to\n         # home page\n         return HttpResponseRedirect(\"/cases/list/\")\n  \n+    context = {\n+        'obj': obj,\n+    }\n     return render(request, \"cases/delete.html\", context)\n \n def updaterecord(request):\n     first = request.POST['title']\n"
+                },
+                {
+                    "date": 1666150194606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,11 +57,9 @@\n         # after deleting redirect to\n         # home page\n         return HttpResponseRedirect(\"/cases/list/\")\n  \n-    context = {\n-        'obj': obj,\n-    }\n+    context = [ 'obj': obj ]\n     return render(request, \"cases/delete.html\", context)\n \n def updaterecord(request):\n     first = request.POST['title']\n"
+                },
+                {
+                    "date": 1666150206728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,11 @@\n         # after deleting redirect to\n         # home page\n         return HttpResponseRedirect(\"/cases/list/\")\n  \n-    context = [ 'obj': obj ]\n+    context = {\n+        'obj': obj,\n+    }\n     return render(request, \"cases/delete.html\", context)\n \n def updaterecord(request):\n     first = request.POST['title']\n"
+                },
+                {
+                    "date": 1666150509414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \n def detail(request,id):\n     context = {}\n     context[\"data\"] = Case.objects.get(id = id)\n-    return render(request, \"detail.html\", context)\n+    return render(request, \"cases/detail.html\", context)\n \n def update(request, id) :\n     context = {}\n \n"
+                }
+            ],
+            "date": 1666134918912,
+            "name": "Commit-0",
+            "content": "from django.http import HttpResponse\nfrom django.shortcuts import (render,get_object_or_404, HttpResponseRedirect)\nfrom apps.cases.models import Case\nfrom apps.cases.forms import CasesForm\n\n# Create your views here.\ndef index(request):\n  return HttpResponse(\"Cases\")\n\ndef list(request):\n    context = {}\n    context[\"dataset\"] = Case.objects.all()\n    return render(request, \"cases/list.html\", context)\n\ndef create(request):\n    # dictionary for initial data with\n    # field names as keys\n    context ={}\n \n    # add the dictionary during initialization\n    form = CasesForm(request.POST or None)\n    if form.is_valid():\n        form.save()\n        return HttpResponseRedirect(\"/cases/list/\")\n         \n    context['form']= form\n    return render(request, \"cases/create.html\", context)\n\ndef detail(request,id):\n    context = {}\n    context[\"data\"] = Case.objects.get(id = id)\n    return render(request, \"detail.html\", context)\n\ndef update(request, id):\n    context = {}\n    #obj = get_object_or_404(CasosModel, id = id)\n    obj = Case.objects.get(id=id)\n    print(type(obj))\n    # pass the object as instance in form\n    form = CasesForm(request.POST or None, instance=obj)\n\n    # save the data from the form and\n    # redirect to detail_view\n    if form.is_valid():\n        form.save()\n        return HttpResponseRedirect(\"/cases/list/\")\n \n    # add form dictionary to context\n    context[\"form\"] = form\n \n    return render(request, \"cases/update.html\", context)\n\ndef delete(request, id):\n    context = {}\n    obj = get_object_or_404(Case, id = str(id))\n    if request.method ==\"POST\":\n        # delete object\n        obj.delete()\n        # after deleting redirect to\n        # home page\n        return HttpResponseRedirect(\"/cases/list/\")\n \n    return render(request, \"cases/delete.html\", context)"
+        }
+    ]
+}
