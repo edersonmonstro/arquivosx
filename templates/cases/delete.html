@@ -4,18 +4,13 @@
 
 		<form method="POST">
 
-			<div class="alert alert-success" role="alert">
-				<h2>X-Files Case Delete</h2>
-			</div>
 			{% csrf_token %}
 
-			<div class="alert alert-danger" role="alert">
 				<h2>Are you want to delete Case <b>{{ obj.title }}</b> ?</h2>
-			</div>
 
-			<button type="submit" class="btn btn-success">Yes</button>
+			<button type="submit">Yes</button>
 			
-			<a href="/cases/list/" class="btn btn-danger">Cancel </a>
+			<a href="/cases/list/">Cancel </a>
 
 		</form>
 	</div>

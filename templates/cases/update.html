@@ -7,23 +7,15 @@
         <!-- Security token -->
         {% csrf_token %}
 
-        <div class="alert alert-success" role="alert">
-            <h2>X-Files Case Update</h2>
-        </div>
-
-        <input type="hidden" class="form-control" name="id" id="id" value="{{ obj.id }}">
+        <input type="hidden" name="id" id="id" value="{{ obj.id }}">
        
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title" id="title" value="{{ obj.title }}">
-        </div>
+        Title
+        <input type="text" name="title" id="title" value="{{ obj.title }}">
 
-        <div class="mb-3">
-            <label for="title" class="form-label">Theme</label>
-            <input type="text" class="form-control" name="theme" id="theme" value="{{ obj.theme }}">
-        </div>
-       
-        <button type="submit" class="btn btn-success">Submit</button>
+        Theme
+        <input type="text" name="theme" id="theme" value="{{ obj.theme }}">
+
+        <button type="submit">Submit</button>
     <!-- Using the formset 
     {{ form.as_p }}-->
      

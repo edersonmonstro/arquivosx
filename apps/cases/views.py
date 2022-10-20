@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import (render,get_object_or_404, HttpResponseRedirect)
 from apps.cases.models import Case
 from apps.cases.forms import CasesForm
+import datetime
 
 # Create your views here.
 def index(request):
@@ -10,6 +11,10 @@ def index(request):
 def list(request):
     context = {}
     context["dataset"] = Case.objects.all()
+    
+    now = datetime.datetime.now()
+    context["date_time"] =  now.strftime("%d/%m/%Y %H:%M:%S")
+    
     return render(request, "cases/list.html", context)
 
 def create(request):

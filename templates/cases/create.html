@@ -9,21 +9,16 @@
         <!-- Security token -->
         {% csrf_token %}
 
-        <div class="alert alert-success" role="alert">
-            <h2>X-Files New Case</h2>
-        </div>
+        X-Files New Case
 
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title">
-        </div>
-
-        <div class="mb-3">
-            <label for="title" class="form-label">Theme</label>
-            <input type="text" class="form-control" name="theme">
-        </div>
+        title
+        <input type="text" name="title">
+      
+        theme
+        <input type="text" name="theme">
        
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit">Submit</button>
+        
       </form>
 
     <!-- Using the formset 

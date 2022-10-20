@@ -3,18 +3,14 @@
 {% block content %}
 
 <div class="main">
-    
-        <div class="alert alert-success" role="alert">
-            <h2>X-Files Cases List <a href="/cases/create/" class="btn btn-success">New X-File Case</a></h2>
-        </div>
          
-        <table class="table table-success">
+        <table class="table">
             <thead>
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
                 <th scope="col">Theme</th>
-                <th scope="col">Options</th>
+                <th scope="col">Options <span align="right"><a href="/cases/create/">New X-File Case</a></span></th>
               </tr>
             </thead>
             <tbody>
@@ -22,11 +18,11 @@
                     <tr>
                         <th scope="row">{{ data.id }}</th>
                         <td>{{ data.title }}</td>
-                        <td>({{ data.theme }})</td>
+                        <td>{{ data.theme }}</td>
                         <td>
-                            <a href="/cases/{{ data.id }}/update" class="btn btn-warning">Update</a>
-                            <a href="/cases/{{ data.id }}/delete" class="btn btn-danger">Delete</a>
-                            <a href="/cases/{{ data.id }}" class="btn btn-primary">Details</a>
+                            <a href="/cases/{{ data.id }}/update">Update</a>
+                            <a href="/cases/{{ data.id }}/delete">Delete</a>
+                            <a href="/cases/{{ data.id }}">Details</a>
                         </td>
                     </tr>
                 {% empty %}

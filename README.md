@@ -25,3 +25,9 @@ migrations to create/populate db
 ## links uteis
 ### na hora de montar o update view
 https://www.w3schools.com/django/django_update_record.php
+
+## put imagens with django
+ <div class="alert alert-success" role="alert">
+            <h2></h2>{% load static %} <img src="{% static "img/fbi_logo.png" %}" alt="home" width="80px" height="80px" /> X-Files Cases List</h2>
+            
+        </div>
