@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import (render,get_object_or_404, HttpResponseRedirect)
 from apps.cases.models import Case
 from apps.cases.forms import CasesForm
+from django.http import JsonResponse
+import json
 
 # Create your views here.
 def index(request):
@@ -72,3 +74,16 @@ def updaterecord(request):
     member.theme = last
     member.save()
     return HttpResponseRedirect("/cases/list/")
+
+def previewnext(request):
+    id_case = int(json.load(request)['case_id'])
+    id_case = id_case  + 1
+    try:
+        next_case = Case.objects.get(id=id_case)
+        data = {
+            'case':next_case.toJSON(),
+        }
+    except Case.DoesNotExist:
+        data = {
+        }
+    return JsonResponse(data)

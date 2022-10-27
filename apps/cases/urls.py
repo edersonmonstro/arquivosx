@@ -12,5 +12,6 @@ urlpatterns = [
     #path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),
     path('<id>/delete', views.delete),
     path('update/', views.updaterecord),
+    path('previewnext/', views.previewnext),
 ]
  

@@ -6,7 +6,59 @@
 		<h2>X-Files Case <b>{{ data.id }} - {{ data.title }} ({{ data.theme }})</b></h2>
 	</div>
 	<a href="/cases/list/" class="btn btn-success">Back to List </a>
+	
+	<!-- Button trigger modal -->
+	<button id="btn_next_preview" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#next">
+		Preview next case
+  	</button>
 
+	<!-- MODAL NEXT REGISTER PREVIEW -->
+	<div id="next" class="modal disabled" tabindex="-1">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title">Case</h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+			  <div id="modal_title"></div>
+			  <div id="modal_theme"></div>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+	<script>
+		$('#btn_next_preview').click(function(){
+			var myData = {
+    			case_id: '{{ data.id }}'
+			};
+
+			fetch('/cases/previewnext/', {
+				method: 'POST',
+        		headers: {
+            		'Content-Type': 'application/json',
+					'X-CSRFToken': '{{ csrf_token }}',
+        		},
+				body: JSON.stringify(myData)
+			})
+			.then(response => {
+        		return response.json() //Convert response to JSON
+			})
+			.then(data => {
+				if(data.case) {
+					$('#modal_title').html('<p><b>Title:</b> '+data.case.title+'</p>')
+					$('#modal_theme').html('<p><b>Theme:</b> '+data.case.theme+'</p>')
+				} else {
+					$('#modal_title').html('<p><b>Error:</b> next case not found </p>')
+				}
+
+			})
+		});
+	</script>
 {% endblock %}
 
 

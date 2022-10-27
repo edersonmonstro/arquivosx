@@ -23,6 +23,11 @@ class Case(models.Model):
     suspects = models.ManyToManyField(Suspect, blank=True)
     def __str__(self):
         return self.title
+    def to_dict(self):
+        d = { 'title' : self.title, 'theme' : self.theme }
+        return d 
+    def toJSON(self):
+        return self.to_dict()
 
 admin.site.register(Case)
 admin.site.register(Suspect)
